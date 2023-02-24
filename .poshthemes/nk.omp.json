@@ -44,6 +44,22 @@
             "type": "prompt"
         },
         {
+            "alignment": "right",
+            "segments": [
+                {
+                    "type": "executiontime",
+                    "style": "plain",
+                    "foreground": "p:yellow",
+                    "template": "{{ .FormattedMs }}",
+                    "properties": {
+                        "always_enabled": true,
+                        "style": "round"       
+                    }
+                }
+            ],
+            "type": "prompt"
+        },
+        {
             "alignment": "left",
             "newline": true,
             "segments": [
@@ -83,12 +99,10 @@
     ],
     "osc99": true,
     "transient_prompt": {
-        "background": "transparent",
         "foreground": "p:magenta",
         "template": "\ue285 "
     },
     "secondary_prompt": {
-        "background": "transparent",
         "foreground": "p:magenta",
         "template": "\u2514 "
     },
