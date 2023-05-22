@@ -37,7 +37,7 @@
                         "fetch_worktree_count": true
                     },
                     "style": "plain",
-                    "template": "<p:magenta> </>{{ if or (.Working.Changed) (.Staging.Changed) (gt .StashCount 0) }}<p:magenta>{{ .HEAD }}</>{{ else }}<p:cyan>{{ .HEAD }}</>{{ end }}{{ if (gt .Ahead 0) }}<p:yellow> {{ .BranchStatus }}</>{{ end }}{{ if (gt .Behind 0) }}<p:yellow> {{ .BranchStatus }}</>{{ end }}{{ if .Staging.Changed }}<p:green> {{ .Staging.String }}</>{{ end }}{{ if .Working.Changed }}<p:red> {{ .Working.String }}</>{{ end }}",
+                    "template": " <p:magenta> </>{{ if or (.Working.Changed) (.Staging.Changed) (gt .StashCount 0) }}<p:magenta>{{ .HEAD }}</>{{ else }}<p:cyan>{{ .HEAD }}</>{{ end }}{{ if (gt .Ahead 0) }}<p:yellow> {{ .BranchStatus }}</>{{ end }}{{ if (gt .Behind 0) }}<p:yellow> {{ .BranchStatus }}</>{{ end }}{{ if .Staging.Changed }}<p:green> {{ .Staging.String }}</>{{ end }}{{ if .Working.Changed }}<p:red> {{ .Working.String }}</>{{ end }}",
                     "type": "git"
                 }
             ],
@@ -47,13 +47,19 @@
             "alignment": "right",
             "segments": [
                 {
+                    "type": "cmake",
+                    "style": "plain",
+                    "foreground": "p:cyan",
+                    "template": "{{ if .Error }}{{ else }} CMake {{ .Full }} {{ end }}"
+                },
+                {
                     "type": "executiontime",
                     "style": "plain",
                     "foreground": "p:yellow",
                     "template": "{{ .FormattedMs }}",
                     "properties": {
                         "always_enabled": true,
-                        "style": "round"       
+                        "style": "round"
                     }
                 }
             ],
